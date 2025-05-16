@@ -1,5 +1,10 @@
 from flask import Flask
+import sys
+import os
 import pytest
+
+# Ensure the app module can be imported in CI/CD and local environments
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from app import app
 
 @pytest.fixture
