@@ -1,3 +1,9 @@
+## What is This Website About?
+
+This website is a demonstration project built with Python and Flask. It features a simple, modern web application with three main pages: Home, About, and Contact. The project is designed to showcase best practices in Python web development, including modular code structure, automated testing, Dockerization, and CI/CD automation with GitHub Actions. It serves as a proof-of-concept (POC) for learning, portfolio, or resume purposes, and can be used as a template for more complex web applications.
+
+---
+
 ## Detailed Explanation of Each Step
 
 ### 1. Creating a Virtual Environment
