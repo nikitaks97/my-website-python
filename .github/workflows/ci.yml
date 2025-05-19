@@ -61,7 +61,7 @@ jobs:
     - name: Run tests with coverage
       run: |
         pip install pytest pytest-cov
-        pytest tests/test_routes.py --cov=app --cov-report=xml
+        pytest tests/test_routes.py --cov=app --cov-report=xml:coverage.xml
 
     - name: docker login
       uses: docker/login-action@v3
