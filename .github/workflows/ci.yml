@@ -26,6 +26,12 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-pip-
 
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@v1.9
       env:
@@ -37,9 +43,10 @@ jobs:
           -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
           -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
           -Dsonar.projectName=${{ github.event.repository.name }}
-          -Dsonar.python.version=3.8
+          -Dsonar.python.version=3.11
           -Dsonar.sources=app
           -Dsonar.tests=tests
+          -Dsonar.python.coverage.reportPaths=coverage.xml
           -Dsonar.python.coverage.reportPaths=coverage.xml
 
     - name: Set up Python
