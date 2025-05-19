@@ -18,3 +18,14 @@ if __name__ == "__main__":
 def insecure_function():
     password = 'hardcoded_password'  # Security issue: Hardcoded sensitive information
     print(password)
+
+def buggy_function():
+    return [1, 2, 3][5]  # Bug: Index out of range
+
+def vulnerable_function():
+    import pickle
+    data = pickle.loads(b"malicious_data")  # Vulnerability: Unsafe deserialization
+
+def smelly_function():
+    for i in range(10):
+        pass  # Code smell: Empty loop body
