@@ -1,5 +1,6 @@
 name: python app build and test 
 
+
 on:
   push:
     branches:
@@ -10,10 +11,10 @@ on:
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout code
+    steps:    - name: Checkout code
       uses: actions/checkout@v4
     
     - name: Cache Python dependencies
@@ -23,15 +24,6 @@ jobs:
         key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
         restore-keys: |
           ${{ runner.os }}-pip-
-
-    - name: sonarcloud
-      uses: sonarsource/sonarcloud-github-action@v1.0.0
-      with:
-        sonarcloud-token: ${{ secrets.SONAR_TOKEN }}
-        projectKey: ${ vars.SONAR_PROJECT_KEY }
-        projectName: '${{ github.event.repository.name }}'
-        organization: '${{ vars.SONAR_ORG }}'
-        sonarcloud-url: 'https://sonarcloud.io'
 
     - name: Set up Python
       uses: actions/setup-python@v2
@@ -62,4 +54,4 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ${{ vars.DOCKERHUB_USERNAME }}/pythonwebapp:latest
+        tags:  ${{ vars.DOCKERHUB_USERNAME }}/pythonwebapp:latest
