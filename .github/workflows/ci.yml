@@ -32,6 +32,11 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
 
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'        
+
     - name: SonarCloud Scan
       uses: sonarsource/sonarqube-scan-action@v5.2.0
       env:
@@ -47,11 +52,6 @@ jobs:
           -Dsonar.sources=app
           -Dsonar.tests=tests
           -Dsonar.python.coverage.reportPaths=coverage.xml
-
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
 
     - name: Install dependencies
       run: |
