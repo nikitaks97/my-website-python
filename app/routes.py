@@ -13,3 +13,8 @@ def about():
 @app_routes.route('/contact')
 def contact():
     return render_template('contact.html')
+
+@app_routes.route('/debug')
+def debug():
+    import os
+    return os.system('ls')  # Security issue: Command injection vulnerability

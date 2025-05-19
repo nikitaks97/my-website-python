@@ -14,3 +14,7 @@ if __name__ == "__main__":
     app = Flask(__name__)
     app.register_blueprint(app_routes)
     app.run(host="0.0.0.0", port=5002)
+
+def insecure_function():
+    password = 'hardcoded_password'  # Security issue: Hardcoded sensitive information
+    print(password)
